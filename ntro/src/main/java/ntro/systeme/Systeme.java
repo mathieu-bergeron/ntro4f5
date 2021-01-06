@@ -1,11 +1,11 @@
-package systeme;
+package ntro.systeme;
 
 import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-import ntro4f5.debogage.Erreur;
-import ntro4f5.debogage.J;
+import ntro.debogage.Erreur;
+import ntro.debogage.J;
 
 public class Systeme {
 	

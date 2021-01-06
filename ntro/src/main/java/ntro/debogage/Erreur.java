@@ -1,6 +1,6 @@
-package ntro4f5.debogage;
+package ntro.debogage;
 
-import systeme.Systeme;
+import ntro.systeme.Systeme;
 
 public class Erreur {
 	

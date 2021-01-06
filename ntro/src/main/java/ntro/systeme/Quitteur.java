@@ -1,4 +1,4 @@
-package systeme;
+package ntro.systeme;
 
 public interface Quitteur {
 

@@ -1,8 +1,8 @@
-package ntro4f5.debogage;
+package ntro.debogage;
 
 import java.util.Enumeration;
 
-import systeme.Systeme;
+import ntro.systeme.Systeme;
 
 @SuppressWarnings({"rawtypes"})
 public class DoitEtre {

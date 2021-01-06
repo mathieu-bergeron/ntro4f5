@@ -1,4 +1,4 @@
-package ntro4f5.debogage;
+package ntro.debogage;
 
 
 @SuppressWarnings({"rawtypes"})
@@ -75,9 +75,10 @@ public class J {
         int numeroLigne = appelAAfficher.getLineNumber();
 
         String etiquette = PREFIXE + " (" + nomFichier  + ":" + numeroLigne + ") ICI";
-        
+
         System.out.println(etiquette);
     }
+
 
     public static void valeurs(Object... valeurs){
     	if(!siActif) {return;}
