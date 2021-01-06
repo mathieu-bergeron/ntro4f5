@@ -1,1 +1,2 @@
 rootProject.name = 'ntro4f5'
+include 'lib'
