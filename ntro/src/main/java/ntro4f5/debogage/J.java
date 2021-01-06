@@ -75,6 +75,8 @@ public class J {
         int numeroLigne = appelAAfficher.getLineNumber();
 
         String etiquette = PREFIXE + " (" + nomFichier  + ":" + numeroLigne + ") ICI";
+        
+        System.out.println(etiquette);
     }
 
     public static void valeurs(Object... valeurs){
