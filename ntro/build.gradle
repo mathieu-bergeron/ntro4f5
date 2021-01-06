@@ -3,7 +3,6 @@ import org.gradle.plugins.ide.eclipse.model.AccessRule
 plugins {
     id 'java-library'
     id 'eclipse'
-//    id 'maven-publish'
 }
 
 group = 'ca.ntro4f5'
@@ -42,13 +41,3 @@ tasks.clean {
         new File("${project.projectDir}/bin").deleteDir()
     }
 }
-
-/*
-
-publishing {
-    repositories {
-        maven {
-            url = '../repo'
-        }
-    }
-} */
