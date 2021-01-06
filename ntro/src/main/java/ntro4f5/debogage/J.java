@@ -63,6 +63,20 @@ public class J {
     	
     }
 
+    public static void ici(){
+    	if(!siActif) {return;}
+
+    	int indiceAppel = INDICE_APPEL_A_AFFICHER - 1;
+
+        StackTraceElement appelAAfficher = getAppel(indiceAppel);
+
+        String nomFichier = appelAAfficher.getFileName();
+
+        int numeroLigne = appelAAfficher.getLineNumber();
+
+        String etiquette = PREFIXE + " (" + nomFichier  + ":" + numeroLigne + ") ICI";
+    }
+
     public static void valeurs(Object... valeurs){
     	if(!siActif) {return;}
 
