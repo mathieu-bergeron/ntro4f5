@@ -5,6 +5,9 @@ plugins {
     id 'eclipse'
 }
 
+project.group = 'ntro4f5'
+project.version = '1.0'
+
 java {
     sourceCompatibility = JavaVersion.VERSION_1_8
     targetCompatibility = JavaVersion.VERSION_1_8
