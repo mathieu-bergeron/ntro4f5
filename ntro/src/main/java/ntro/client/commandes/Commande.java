@@ -1,5 +1,6 @@
 package ntro.client.commandes;
 
+import ntro.debogage.Erreur;
 import ntro.debogage.J;
 
 @SuppressWarnings({"unchecked"})
@@ -36,8 +37,19 @@ public abstract class Commande<CPE extends CommandePourEnvoi,
 	@Override
     public boolean siCommandePossible(){
         J.appel(this);
+        
+        boolean siPossible = false;
+        
+        if(recepteur == null) {
+        	
+        	Erreur.nonFatale(String.format("Aucun recepteur pour la commande ", this.getClass().getSimpleName()));
 
-        return recepteur.siCommandePossible((CR) this);
+        }else {
+
+			siPossible = recepteur.siCommandePossible((CR) this);
+        }
+        
+        return siPossible;
     }
 
 	@Override

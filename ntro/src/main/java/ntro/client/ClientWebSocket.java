@@ -1,5 +1,6 @@
 package ntro.client;
 
+import java.net.ConnectException;
 import java.net.URI;
 
 import org.java_websocket.client.WebSocketClient;

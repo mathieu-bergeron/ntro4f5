@@ -52,7 +52,9 @@ public final class FabriqueCommande {
 		J.appel(FabriqueCommande.class);
 
 		RecepteurCommande recepteur = recepteurs.get(classeCommande);
-		DoitEtre.nonNul(recepteur, String.format("Aucun recepteur installé pour la Commande %s", classeCommande.getSimpleName()));
+		if(recepteur == null) {
+			Erreur.nonFatale(String.format("Aucun recepteur installé pour la Commande %s", classeCommande.getSimpleName()));
+		}
 
 		ReactionApresCommande reaction = reactionsApresCommande.get(classeCommande);
 		

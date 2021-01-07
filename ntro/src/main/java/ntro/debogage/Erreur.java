@@ -14,7 +14,7 @@ public class Erreur {
 
 	public static void nonFatale(String message, Exception... exceptions) {
 		J.messageErreur(0, ERREUR, message);
-		afficherExceptions(exceptions);
+		//afficherExceptions(exceptions);
 	}
 
 	public static void fatale(String message, Exception... exceptions) {
