@@ -10,14 +10,17 @@ import ntro.client.commandes.CommandePourEnvoi;
 import ntro.client.commandes.CommandeRecue;
 import ntro.client.commandes.FabriqueCommande;
 import ntro.client.commandes.ReactionApresCommande;
-import ntro.client.commandes.ReactionVideParDefaut;
 import ntro.client.commandes.RecepteurCommande;
 import ntro.client.mvc.Vue;
 
 @SuppressWarnings("rawtypes")
 public abstract class ControleurVue<V extends Vue> {
 	
-	protected V vue;
+	private V vue;
+
+	public V getVue() {
+		return vue;
+	}
 	
 	protected ControleurVue() {
 		J.appel(this);
@@ -78,4 +81,5 @@ public abstract class ControleurVue<V extends Vue> {
 	protected abstract void installerReceptionCommandes();
 	protected abstract void installerReceptionMessages();
 	protected abstract void demarrer();
+
 }

@@ -17,8 +17,17 @@ public abstract class ControleurModeleVue<MLS extends ModeleLectureSeule,
 
 				extends ControleurVue<V> {
 	
-	protected M modele;
-	protected A afficheur;
+	private M modele;
+    private A afficheur;
+
+	public M getModele() {
+		return modele;
+	}
+
+	public A getAfficheur() {
+		return afficheur;
+	}
+		
 	
 	protected ControleurModeleVue() {
 		super();
@@ -40,7 +49,7 @@ public abstract class ControleurModeleVue<MLS extends ModeleLectureSeule,
 	void initialiserAffichage() {
 		J.appel(this);
 		
-		afficheur.initialiserAffichage(modele, vue);
+		afficheur.initialiserAffichage(modele, getVue());
 	}
 	
 	@Override
@@ -52,9 +61,9 @@ public abstract class ControleurModeleVue<MLS extends ModeleLectureSeule,
 			public void reagirApresCommande() {
 				J.appel(this);
 				
-				afficheur.rafraichirAffichage((MLS) modele, vue);
+				afficheur.rafraichirAffichage((MLS) modele, getVue());
 				
-				vue.verifierCommandesPossibles();
+				getVue().verifierCommandesPossibles();
 			}
 		});
 	}
@@ -63,6 +72,7 @@ public abstract class ControleurModeleVue<MLS extends ModeleLectureSeule,
 	void notifierMessageTraite() {
 		J.appel(this);
 		
-		afficheur.rafraichirAffichage(modele, vue);
+		afficheur.rafraichirAffichage(modele, getVue());
 	}
+
 }
