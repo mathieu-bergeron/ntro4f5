@@ -9,13 +9,13 @@ import ntro.Fabrique;
 import ntro.debogage.J;
 import ntro.utiles.Json;
 
-public class Entrepot {
+public class EntrepotDeModeles {
 	
 	private static String CHEMIN_REPERTOIRE_ENTREPOT = "entrepot";
 	private static String EXTENSION_JSON = ".json";
 	
 	public static <MLS extends ModeleLectureSeule, M extends Modele<MLS>> M obtenirModele(Class<M> classeModele, String idModele) throws IOException {
-		J.appel(Entrepot.class);
+		J.appel(EntrepotDeModeles.class);
 
 		Path cheminSauvegarde = Paths.get(CHEMIN_REPERTOIRE_ENTREPOT, classeModele.getSimpleName(), idModele + EXTENSION_JSON);
 		
@@ -29,7 +29,7 @@ public class Entrepot {
 	}
 
 	public static <MLS extends ModeleLectureSeule, M extends Modele<MLS>> void sauvegarderModele(M modele) throws IOException {
-		J.appel(Entrepot.class);
+		J.appel(EntrepotDeModeles.class);
 		
 		Path cheminRepertoireModeles = Paths.get(CHEMIN_REPERTOIRE_ENTREPOT, modele.getClass().getSimpleName());
 
@@ -47,7 +47,7 @@ public class Entrepot {
 	}
 
 	public static <MLS extends ModeleLectureSeule, M extends Modele<MLS>> M creerModele(Class<M> classeModele) {
-		J.appel(Entrepot.class);
+		J.appel(EntrepotDeModeles.class);
 
 		M modele = Fabrique.nouvelleInstance(classeModele);
 		
