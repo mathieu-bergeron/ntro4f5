@@ -88,7 +88,7 @@ public class ChargeurDeVue<V extends Vue>{
     }
 
     
-    public Scene nouvelleScene(int largeur, int hauteur) {
+    public Scene nouvelleScene(double largeur, double hauteur) {
         J.appel(this);
         
         DoitEtre.nonNul(parent);
