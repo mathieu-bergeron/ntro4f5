@@ -21,11 +21,23 @@ public class EntrepotDeModeles {
 		
 		File fichierSauvegarde = cheminSauvegarde.toFile();
 		
+		return aPartirFichier(classeModele, fichierSauvegarde);
+	}
+
+	private static <MLS extends ModeleLectureSeule, M extends Modele<MLS>> M aPartirFichier(Class<M> classeModele, File fichierSauvegarde) throws IOException {
+		J.appel(EntrepotDeModeles.class);
+
 		M modele = Json.aPartirFichier(fichierSauvegarde, classeModele);
 		
 		modele.apresChargementJson();
 
 		return modele;
+	}
+
+	public static <MLS extends ModeleLectureSeule, M extends Modele<MLS>> M obtenirModele(Class<M> classeModele, File fichierSauvegarde) throws IOException {
+		J.appel(EntrepotDeModeles.class);
+
+		return aPartirFichier(classeModele, fichierSauvegarde);
 	}
 
 	public static <MLS extends ModeleLectureSeule, M extends Modele<MLS>> void sauvegarderModele(M modele) throws IOException {
@@ -46,10 +58,12 @@ public class EntrepotDeModeles {
 		Json.sauvegarder(fichierSauvegarde, modele);
 	}
 
-	public static <MLS extends ModeleLectureSeule, M extends Modele<MLS>> M creerModele(Class<M> classeModele) {
+	public static <MLS extends ModeleLectureSeule, M extends Modele<MLS>> M creerModele(Class<M> classeModele, String idModele) {
 		J.appel(EntrepotDeModeles.class);
 
 		M modele = Fabrique.nouvelleInstance(classeModele);
+		
+		modele.setId(idModele);
 		
 		modele.apresCreation();
 		
