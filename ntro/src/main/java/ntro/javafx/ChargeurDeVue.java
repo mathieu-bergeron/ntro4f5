@@ -18,26 +18,39 @@ import javafx.stage.Screen;
 
 public class ChargeurDeVue<V extends Vue>{
     
-    private String cheminFxml;
-    private String cheminChaines;
-    private String cheminCss;
     private FXMLLoader loader;
     private Parent parent;
 
-    public ChargeurDeVue(String cheminFxml, String cheminChaines, String cheminCss) {
-
+    public ChargeurDeVue(String cheminFxml) {
         J.appel(this);
         
-        this.cheminFxml = cheminFxml;
-        this.cheminChaines = cheminChaines;
-        this.cheminCss = cheminCss;
+        DoitEtre.nonNul(cheminFxml);
+
+        creerLoader(cheminFxml);
+        chargerParent();
+    }
+
+    public ChargeurDeVue(String cheminFxml, String cheminCss) {
+    	J.appel(this);
+
+        DoitEtre.nonNul(cheminFxml);
+        DoitEtre.nonNul(cheminCss);
+        
+        creerLoader(cheminFxml);
+        chargerParent();
+        ajouterCss(cheminCss);
+    }
+
+    public ChargeurDeVue(String cheminFxml, String cheminCss, String cheminChaines) {
+        J.appel(this);
         
         DoitEtre.nonNul(cheminFxml);
+        DoitEtre.nonNul(cheminCss);
         DoitEtre.nonNul(cheminChaines);
         
-        creerLoader();
+        creerLoader(cheminFxml, cheminChaines);
         chargerParent();
-        ajouterCss();
+        ajouterCss(cheminCss);
     }
 
     public Scene nouvelleScene(float largeurScenePourcentage, 
@@ -96,13 +109,25 @@ public class ChargeurDeVue<V extends Vue>{
         return new Scene(parent, largeur, hauteur);
     }
 
-
-    private void creerLoader() {
+    private void creerLoader(String cheminFxml) {
         J.appel(this);
         
-        URL fichierFxml = getFichierFxml();
+        URL fichierFxml = getFichierFxml(cheminFxml);
+
+        DoitEtre.nonNul(fichierFxml);
         
-        ResourceBundle chaines = getResourceBundle();
+        loader = new FXMLLoader(fichierFxml);
+        
+        DoitEtre.nonNul(loader);
+
+    }
+
+    private void creerLoader(String cheminFxml, String cheminChaines) {
+        J.appel(this);
+        
+        URL fichierFxml = getFichierFxml(cheminFxml);
+        
+        ResourceBundle chaines = getResourceBundle(cheminChaines);
 
         DoitEtre.nonNul(fichierFxml);
         DoitEtre.nonNul(chaines);
@@ -110,10 +135,9 @@ public class ChargeurDeVue<V extends Vue>{
         loader = new FXMLLoader(fichierFxml, chaines);
         
         DoitEtre.nonNul(loader);
-
     }
 
-    private ResourceBundle getResourceBundle() {
+    private ResourceBundle getResourceBundle(String cheminChaines) {
         J.appel(this);
 
         ResourceBundle chaines = null;
@@ -131,7 +155,7 @@ public class ChargeurDeVue<V extends Vue>{
         return chaines;
     }
 
-    private URL getFichierFxml() {
+    private URL getFichierFxml(String cheminFxml) {
         J.appel(this);
 
         URL fichierFxml = ChargeurDeVue.class.getResource(cheminFxml);
@@ -157,17 +181,14 @@ public class ChargeurDeVue<V extends Vue>{
         DoitEtre.nonNul(parent);
     }
 
-    private void ajouterCss() {
+    private void ajouterCss(String cheminCss) {
         J.appel(this);
-
-		DoitEtre.nonNul(cheminCss);
 
 		URL fichierCss = ChargeurDeVue.class.getResource(cheminCss);
             
 		DoitEtre.nonNul(fichierCss);
             
 		parent.getStylesheets().add(fichierCss.toExternalForm());
-
     }
 
 	public Parent getParent() {
