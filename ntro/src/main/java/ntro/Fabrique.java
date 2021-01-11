@@ -1,5 +1,6 @@
 package ntro;
 
+import ntro.debogage.Erreur;
 import ntro.debogage.J;
 
 public final class Fabrique {
@@ -19,8 +20,8 @@ public final class Fabrique {
 
 		} catch (InstantiationException | IllegalAccessException | IllegalArgumentException | SecurityException | ClassCastException e) {
 			
-			J.valeurs("[FATAL] impossible d'instancier la classe: " + classe.getSimpleName());
-			e.printStackTrace();
+			Erreur.fatale("[FATAL] impossible d'instancier la classe: " + classe.getSimpleName(), e);
+
 		}
 		
 		return instance;
