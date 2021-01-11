@@ -50,6 +50,7 @@ public abstract class ControleurModeleVue<MLS extends ModeleLectureSeule,
 		J.appel(this);
 		
 		afficheur.initialiserAffichage(modele, getVue());
+		afficheur.rafraichirAffichage(modele, getVue());
 	}
 	
 	@Override
