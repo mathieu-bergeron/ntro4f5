@@ -8,23 +8,31 @@ import ntro.systeme.Systeme;
 public class DoitEtre {
 	
 	private static final int INCREMENT_PILE = 1;
-	private static final String ECHEC = "ÉCHEC";
+	private static final String ECHEC = "[FATAL]";
 	
 	public static void nonNul(Object valeur, String... messages) {
+		int incrementPile = INCREMENT_PILE;
+		
 		if(valeur == null) {
 			
 			String message = "valeur nulle";
 			
 			if(messages.length > 0) {
 				
-				message = messages[0];
-				
+				message = messages[0] + " ne doit pas être null";
 			}
-				
-			messagePuisQuitter(message);
 
+			if(messages.length > 1) {
+				
+				try {
+
+					incrementPile += Integer.parseInt(messages[1]);
+
+				}catch(NumberFormatException e) {}
+			}
+
+			messagePuisQuitter(message, incrementPile);
 		}
-		
 	}
 
 	public static void nonVide(Enumeration enumeration, String... messages) {
@@ -39,14 +47,14 @@ public class DoitEtre {
 				
 			}
 				
-			messagePuisQuitter(message);
+			messagePuisQuitter(message, INCREMENT_PILE);
 
 		}
 		
 	}
 
-	private static void messagePuisQuitter(String message) {
-		J.messageErreur(INCREMENT_PILE, ECHEC, message);
+	private static void messagePuisQuitter(String message, int incrementPile) {
+		J.messageErreur(incrementPile, ECHEC, message);
 		Systeme.quitter();
 	}
 	

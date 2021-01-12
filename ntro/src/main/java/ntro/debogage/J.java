@@ -57,9 +57,11 @@ public class J {
 
         int numeroLigne = appelAAfficher.getLineNumber();
 
-        String etiquette = PREFIXE + " (" + nomFichier  + ":" + numeroLigne + ") " + typeErreur;
+        String etiquette = PREFIXE + " (" + nomFichier  + ":" + numeroLigne + ")";
+        
+        System.out.println(etiquette);
 
-        System.out.println(etiquette + ": " + message);
+        System.out.println("\t" + typeErreur + " " + message);
     	
     }
 

@@ -24,7 +24,7 @@ public class ChargeurDeVue<V extends Vue>{
     public ChargeurDeVue(String cheminFxml) {
         J.appel(this);
         
-        DoitEtre.nonNul(cheminFxml);
+        DoitEtre.nonNul(cheminFxml, "cheminFxml", "1");
 
         creerLoader(cheminFxml);
         chargerParent();
@@ -33,8 +33,8 @@ public class ChargeurDeVue<V extends Vue>{
     public ChargeurDeVue(String cheminFxml, String cheminCss) {
     	J.appel(this);
 
-        DoitEtre.nonNul(cheminFxml);
-        DoitEtre.nonNul(cheminCss);
+        DoitEtre.nonNul(cheminFxml, "cheminFxml", "1");
+        DoitEtre.nonNul(cheminCss, "cheminCss", "1");
         
         creerLoader(cheminFxml);
         chargerParent();
@@ -44,9 +44,9 @@ public class ChargeurDeVue<V extends Vue>{
     public ChargeurDeVue(String cheminFxml, String cheminCss, String cheminChaines) {
         J.appel(this);
         
-        DoitEtre.nonNul(cheminFxml);
-        DoitEtre.nonNul(cheminCss);
-        DoitEtre.nonNul(cheminChaines);
+        DoitEtre.nonNul(cheminFxml, "cheminFxml", "1");
+        DoitEtre.nonNul(cheminCss, "cheminCss", "1");
+        DoitEtre.nonNul(cheminChaines, "cheminChaines", "1");
         
         creerLoader(cheminFxml, cheminChaines);
         chargerParent();
@@ -74,7 +74,7 @@ public class ChargeurDeVue<V extends Vue>{
     private Scene creerScene(int largeur, int hauteur, int taillePolice) {
         J.appel(this);
 
-        DoitEtre.nonNul(parent);
+        DoitEtre.nonNul(parent, "parent");
 
         Scene scene = new Scene(parent, largeur, hauteur);
         scene.getRoot().setStyle(String.format("-fx-font-size: %dpx;", taillePolice));
@@ -95,7 +95,7 @@ public class ChargeurDeVue<V extends Vue>{
     	
     	V vue = loader.getController();
     	
-    	DoitEtre.nonNul(vue);
+    	DoitEtre.nonNul(vue, "vue");
 
     	return vue;
     }
@@ -104,7 +104,7 @@ public class ChargeurDeVue<V extends Vue>{
     public Scene nouvelleScene(double largeur, double hauteur) {
         J.appel(this);
         
-        DoitEtre.nonNul(parent);
+        DoitEtre.nonNul(parent, "parent");
 
         return new Scene(parent, largeur, hauteur);
     }
@@ -112,20 +112,19 @@ public class ChargeurDeVue<V extends Vue>{
     private void creerLoader(String cheminFxml) {
         J.appel(this);
         
-        URL fichierFxml = getFichierFxml(cheminFxml);
-
-        DoitEtre.nonNul(fichierFxml);
+        URL fichierFxml = getFichier(cheminFxml);
+        
+        DoitEtre.nonNul(fichierFxml, "fichierXml");
         
         loader = new FXMLLoader(fichierFxml);
         
-        DoitEtre.nonNul(loader);
-
+        DoitEtre.nonNul(loader, "loader");
     }
 
     private void creerLoader(String cheminFxml, String cheminChaines) {
         J.appel(this);
         
-        URL fichierFxml = getFichierFxml(cheminFxml);
+        URL fichierFxml = getFichier(cheminFxml);
         
         ResourceBundle chaines = getResourceBundle(cheminChaines);
 
@@ -148,21 +147,23 @@ public class ChargeurDeVue<V extends Vue>{
 
         }catch(MissingResourceException e) {
             
-            Erreur.fatale("cheminChaines non-trouvé '" + cheminChaines + "'", e);
-            
+            Erreur.fatale("Fichier .properties non-trouvé: " + cheminChaines);
         }
 
         return chaines;
     }
 
-    private URL getFichierFxml(String cheminFxml) {
+    private URL getFichier(String cheminFichier) {
         J.appel(this);
 
-        URL fichierFxml = ChargeurDeVue.class.getResource(cheminFxml);
+        URL fichier = ChargeurDeVue.class.getResource(cheminFichier);
+        
+        if(fichier == null) {
+        	
+        	Erreur.fatale("Fichier non-trouvé: " + cheminFichier);
+        }
 
-        DoitEtre.nonNul(fichierFxml, "cheminFxml non-trouvé '" + cheminFxml + "'");
-
-        return fichierFxml;
+        return fichier;
     }
     
     private void chargerParent() {
@@ -172,23 +173,27 @@ public class ChargeurDeVue<V extends Vue>{
 
             parent = loader.load();
 
-        } catch (IOException e) {
-            
-            Erreur.fatale("impossible de charger le parent", e);
+        } catch (Exception e) {
 
+            Erreur.fatale("Impossible de charger le FXML", e);
         }
 
-        DoitEtre.nonNul(parent);
+        DoitEtre.nonNul(parent, "parent");
     }
 
     private void ajouterCss(String cheminCss) {
         J.appel(this);
 
-		URL fichierCss = ChargeurDeVue.class.getResource(cheminCss);
-            
-		DoitEtre.nonNul(fichierCss);
-            
-		parent.getStylesheets().add(fichierCss.toExternalForm());
+		URL fichierCss = getFichier(cheminCss);
+		
+		try {
+
+			parent.getStylesheets().add(fichierCss.toExternalForm());
+
+		}catch(Exception e) {
+			
+			Erreur.fatale("Impossible de charger le CSS", e);
+		}
     }
 
 	public Parent getParent() {
