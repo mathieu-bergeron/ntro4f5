@@ -23,7 +23,7 @@ public class ChargeurDeVue<V extends Vue>{
     public ChargeurDeVue(String cheminFxml) {
         J.appel(this);
         
-        DoitEtre.nonNul(cheminFxml, "cheminFxml", "1");
+        DoitEtre.nonNul(cheminFxml, "cheminFxml", 1);
 
         creerLoader(cheminFxml);
         chargerParent();
@@ -32,8 +32,8 @@ public class ChargeurDeVue<V extends Vue>{
     public ChargeurDeVue(String cheminFxml, String cheminCss) {
     	J.appel(this);
 
-        DoitEtre.nonNul(cheminFxml, "cheminFxml", "1");
-        DoitEtre.nonNul(cheminCss, "cheminCss", "1");
+        DoitEtre.nonNul(cheminFxml, "cheminFxml", 1);
+        DoitEtre.nonNul(cheminCss, "cheminCss", 1);
         
         creerLoader(cheminFxml);
         chargerParent();
@@ -43,9 +43,9 @@ public class ChargeurDeVue<V extends Vue>{
     public ChargeurDeVue(String cheminFxml, String cheminCss, String cheminChaines) {
         J.appel(this);
         
-        DoitEtre.nonNul(cheminFxml, "cheminFxml", "1");
-        DoitEtre.nonNul(cheminCss, "cheminCss", "1");
-        DoitEtre.nonNul(cheminChaines, "cheminChaines", "1");
+        DoitEtre.nonNul(cheminFxml, "cheminFxml", 1);
+        DoitEtre.nonNul(cheminCss, "cheminCss", 1);
+        DoitEtre.nonNul(cheminChaines, "cheminChaines", 1);
         
         creerLoader(cheminFxml, cheminChaines);
         chargerParent();

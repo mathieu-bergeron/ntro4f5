@@ -19,8 +19,8 @@ public final class FabriqueControleur {
 	public static <C extends ControleurVue> C creerControleur(Class<C> classeControleur, Vue vue) {
 		J.appel(FabriqueControleur.class);
 		
-		DoitEtre.nonNul(classeControleur, "classeControleur", "1");
-		DoitEtre.nonNul(vue, "vue", "1");
+		DoitEtre.nonNul(classeControleur, "classeControleur", 1);
+		DoitEtre.nonNul(vue, "vue", 1);
 
 		C controleur = Fabrique.nouvelleInstance(classeControleur);
 		
@@ -41,10 +41,10 @@ public final class FabriqueControleur {
 
 		J.appel(FabriqueControleur.class);
 
-		DoitEtre.nonNul(classeControleur, "classeControleur", "1");
-		DoitEtre.nonNul(modele, "modele", "1");
-		DoitEtre.nonNul(vue, "vue", "1");
-		DoitEtre.nonNul(afficheur, "afficheur", "1");
+		DoitEtre.nonNul(classeControleur, "classeControleur", 1);
+		DoitEtre.nonNul(modele, "modele", 1);
+		DoitEtre.nonNul(vue, "vue", 1);
+		DoitEtre.nonNul(afficheur, "afficheur", 1);
 
 		C controleur = Fabrique.nouvelleInstance(classeControleur);
 		

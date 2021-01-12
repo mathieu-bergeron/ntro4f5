@@ -1,11 +1,11 @@
 package ntro.client;
 
-import java.net.ConnectException;
 import java.net.URI;
 
 import org.java_websocket.client.WebSocketClient;
 import org.java_websocket.handshake.ServerHandshake;
 
+import ntro.debogage.DoitEtre;
 import ntro.debogage.Erreur;
 import ntro.debogage.J;
 import ntro.messages.Canal;
@@ -19,6 +19,8 @@ public abstract class ClientWebSocket extends WebSocketClient implements Canal {
 	public ClientWebSocket(URI serverUri) {
 		super(serverUri);
 		J.appel(this);
+		
+		DoitEtre.nonNul(serverUri, "serverUri", 1);
 	}
 
 	@Override
@@ -55,7 +57,9 @@ public abstract class ClientWebSocket extends WebSocketClient implements Canal {
 	@Override
 	public void envoyer(Message message) {
 		J.appel(this);
-		
+
+		DoitEtre.nonNul(message, "message", 1);
+
 		send(Json.versJson(message));
 	}
 

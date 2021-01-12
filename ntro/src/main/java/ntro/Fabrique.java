@@ -1,5 +1,6 @@
 package ntro;
 
+import ntro.debogage.DoitEtre;
 import ntro.debogage.Erreur;
 import ntro.debogage.J;
 
@@ -11,7 +12,9 @@ public final class Fabrique {
 	
 	public static <C> C nouvelleInstance(Class<C> classe) {
 		J.appel(Fabrique.class);
-		
+
+		DoitEtre.nonNul(classe, "classe", 1);
+
 		C instance = null;
 
 		try {
@@ -26,5 +29,4 @@ public final class Fabrique {
 		
 		return instance;
 	}
-
 }

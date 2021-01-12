@@ -28,6 +28,9 @@ public final class FabriqueCommande {
 
 		J.appel(FabriqueCommande.class);
 
+		DoitEtre.nonNul(classeCommande, "classeCommande", 1);
+		DoitEtre.nonNul(recepteur, "recepteur", 1);
+
 		recepteurs.put(classeCommande, recepteur);
 	}
 
@@ -50,6 +53,8 @@ public final class FabriqueCommande {
 	       CPE obtenirCommandePourEnvoi(Class<C> classeCommande){
 
 		J.appel(FabriqueCommande.class);
+
+		DoitEtre.nonNul(classeCommande, "classeCommande", 1);
 
 		RecepteurCommande recepteur = recepteurs.get(classeCommande);
 		if(recepteur == null) {

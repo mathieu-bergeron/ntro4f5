@@ -8,6 +8,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import ntro.Fabrique;
+import ntro.debogage.DoitEtre;
 import ntro.debogage.J;
 import ntro.utiles.Json;
 
@@ -69,6 +70,9 @@ public class FabriqueMessage {
 
     public static void installerRecepteur(Class<? extends Message> classeMessage, RecepteurMessage recepteur) {
     	J.appel(FabriqueMessage.class);
+
+		DoitEtre.nonNul(classeMessage, "classeMessage", 1);
+		DoitEtre.nonNul(recepteur, "recepteur", 1);
     	
     	recepteurs.put(classeMessage, recepteur);
     	classeParNom.put(classeMessage.getSimpleName(), classeMessage);
@@ -76,6 +80,8 @@ public class FabriqueMessage {
 
 	public static <M extends Message> M obtenirMessagePourEnvoi(Class<M> classeMessage) {
     	J.appel(FabriqueMessage.class);
+
+		DoitEtre.nonNul(classeMessage, "classeMessage", 1);
     	
     	M message = Fabrique.nouvelleInstance(classeMessage);
     	

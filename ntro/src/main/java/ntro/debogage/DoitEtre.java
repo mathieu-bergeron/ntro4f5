@@ -9,6 +9,17 @@ public class DoitEtre {
 	
 	private static final int INCREMENT_PILE = 1;
 	private static final String ECHEC = "[FATAL]";
+
+	public static void nonNul(Object valeur, String nomVar, int incrementPile) {
+		int incPiel = INCREMENT_PILE + incrementPile;
+		
+		if(valeur == null) {
+			
+			String message = "valeur nulle";
+			message = nomVar + " ne doit pas être null";
+			messagePuisQuitter(message, incrementPile);
+		}
+	}
 	
 	public static void nonNul(Object valeur, String... messages) {
 		int incrementPile = INCREMENT_PILE;
@@ -19,16 +30,7 @@ public class DoitEtre {
 			
 			if(messages.length > 0) {
 				
-				message = messages[0] + " ne doit pas être null";
-			}
-
-			if(messages.length > 1) {
-				
-				try {
-
-					incrementPile += Integer.parseInt(messages[1]);
-
-				}catch(NumberFormatException e) {}
+				message += ": " + messages[0];
 			}
 
 			messagePuisQuitter(message, incrementPile);

@@ -6,6 +6,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 import ntro.Fabrique;
+import ntro.debogage.DoitEtre;
 import ntro.debogage.J;
 import ntro.utiles.Json;
 
@@ -16,7 +17,10 @@ public class EntrepotDeModeles {
 	
 	public static <MLS extends ModeleLectureSeule, M extends Modele<MLS>> M obtenirModele(Class<M> classeModele, String idModele) throws IOException {
 		J.appel(EntrepotDeModeles.class);
-
+		
+		DoitEtre.nonNul(classeModele, "classeModele", 1);
+		DoitEtre.nonNul(idModele, "idModele", 1);
+		
 		Path cheminSauvegarde = Paths.get(CHEMIN_REPERTOIRE_ENTREPOT, classeModele.getSimpleName(), idModele + EXTENSION_JSON);
 		
 		File fichierSauvegarde = cheminSauvegarde.toFile();
@@ -37,11 +41,16 @@ public class EntrepotDeModeles {
 	public static <MLS extends ModeleLectureSeule, M extends Modele<MLS>> M obtenirModele(Class<M> classeModele, File fichierSauvegarde) throws IOException {
 		J.appel(EntrepotDeModeles.class);
 
+		DoitEtre.nonNul(classeModele, "classeModele", 1);
+		DoitEtre.nonNul(fichierSauvegarde, "fichierSauvegarde", 1);
+
 		return aPartirFichier(classeModele, fichierSauvegarde);
 	}
 
 	public static <MLS extends ModeleLectureSeule, M extends Modele<MLS>> void sauvegarderModele(M modele) throws IOException {
 		J.appel(EntrepotDeModeles.class);
+
+		DoitEtre.nonNul(modele, "modele", 1);
 		
 		Path cheminRepertoireModeles = Paths.get(CHEMIN_REPERTOIRE_ENTREPOT, modele.getClass().getSimpleName());
 
@@ -61,6 +70,9 @@ public class EntrepotDeModeles {
 	public static <MLS extends ModeleLectureSeule, M extends Modele<MLS>> M creerModele(Class<M> classeModele, String idModele) {
 		J.appel(EntrepotDeModeles.class);
 
+		DoitEtre.nonNul(classeModele, "classeModele", 1);
+		DoitEtre.nonNul(idModele, "idModele", 1);
+
 		M modele = Fabrique.nouvelleInstance(classeModele);
 		
 		modele.setId(idModele);
@@ -69,6 +81,4 @@ public class EntrepotDeModeles {
 		
 		return modele;
 	}
-	
-
 }
