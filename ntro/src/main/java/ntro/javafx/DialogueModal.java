@@ -16,14 +16,16 @@ public class DialogueModal {
 	
 	public static void enregistreFenetrePrincipale(Stage fenetrePrincipale) {
 		J.appel(DialogueModal.class);
-		
+
+		DoitEtre.nonNul(fenetrePrincipale, "fenetrePrincipale", "1");
+
 		DialogueModal.fenetrePrincipale = fenetrePrincipale;
 	}
 
 	public static Stage ouvrirDialogueModal(Scene scene) {
 		J.appel(DialogueModal.class);
-		
-		DoitEtre.nonNul(fenetrePrincipale);
+
+		DoitEtre.nonNul(scene, "scene", "1");
 
         Stage fenetreModale = new Stage();
         fenetreModale.setScene(scene);

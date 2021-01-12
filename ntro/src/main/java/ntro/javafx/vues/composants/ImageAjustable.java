@@ -2,7 +2,7 @@ package ntro.javafx.vues.composants;
 
 import java.io.InputStream;
 
-import ntro.debogage.DoitEtre;
+import ntro.debogage.Erreur;
 import ntro.debogage.J;
 import javafx.scene.image.Image;
 
@@ -33,8 +33,11 @@ public abstract class ImageAjustable extends CanvasAjustable {
 		
 		InputStream streamImage = ImageAjustable.class.getResourceAsStream(url);
 		
-		DoitEtre.nonNul(streamImage, "Impossible de charger l'image: " + url);
-		
+		if(streamImage == null) {
+			
+			Erreur.fatale("Image non-trouvée: " + url.toString());
+		}
+
 		image = new Image(streamImage);
 	}
 

@@ -1,6 +1,5 @@
 package ntro.javafx;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
@@ -128,12 +127,12 @@ public class ChargeurDeVue<V extends Vue>{
         
         ResourceBundle chaines = getResourceBundle(cheminChaines);
 
-        DoitEtre.nonNul(fichierFxml);
-        DoitEtre.nonNul(chaines);
+        DoitEtre.nonNul(fichierFxml, "fichierXml");
+        DoitEtre.nonNul(chaines, "chaines");
         
         loader = new FXMLLoader(fichierFxml, chaines);
         
-        DoitEtre.nonNul(loader);
+        DoitEtre.nonNul(loader, "loader");
     }
 
     private ResourceBundle getResourceBundle(String cheminChaines) {
