@@ -2,6 +2,7 @@ package ntro.client.mvc.controleurs;
 
 
 import ntro.Fabrique;
+import ntro.debogage.DoitEtre;
 import ntro.debogage.J;
 import ntro.modeles.Modele;
 import ntro.modeles.ModeleLectureSeule;
@@ -38,6 +39,8 @@ public final class FabriqueControleur {
 		J.appel(FabriqueControleur.class);
 
 		C controleur = Fabrique.nouvelleInstance(classeControleur);
+		
+		DoitEtre.nonNul(controleur);
 		
 		controleur.setModele(modele);
 		controleur.setVue(vue);
