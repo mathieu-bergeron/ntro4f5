@@ -8,7 +8,6 @@ plugins {
 group = 'ca.ntro4f5'
 version = '0.1'
 
-
 java {
     sourceCompatibility = JavaVersion.VERSION_1_8
     targetCompatibility = JavaVersion.VERSION_1_8
@@ -39,7 +38,6 @@ dependencies {
     // Websocket
     // https://github.com/TooTallNate/Java-WebSocket
     implementation 'org.java-websocket:Java-WebSocket:1.4.0'
-
 }
 
 tasks.clean {
