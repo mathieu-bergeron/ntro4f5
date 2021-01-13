@@ -12,10 +12,6 @@ public class J {
 
     private static final String PREFIXE = "J#";
 
-    private static final String SEPARATEUR_NOM_CLASSE = "\\.";
-
-    private static final int BORNE_FORMATTAGE_EN_HEX = 100000;
-
     public static void initialiser(Contexte contexte){
         switch(contexte){
             case JAVAFX:

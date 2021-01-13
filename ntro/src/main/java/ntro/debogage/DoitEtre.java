@@ -11,13 +11,13 @@ public class DoitEtre {
 	private static final String ECHEC = "[FATAL]";
 
 	public static void nonNul(Object valeur, String nomVar, int incrementPile) {
-		int incPiel = INCREMENT_PILE + incrementPile;
+		int incPile = INCREMENT_PILE + incrementPile;
 		
 		if(valeur == null) {
 			
 			String message = "valeur nulle";
 			message = nomVar + " ne doit pas être null";
-			messagePuisQuitter(message, incrementPile);
+			messagePuisQuitter(message, incPile);
 		}
 	}
 	
