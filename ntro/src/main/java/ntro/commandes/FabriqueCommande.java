@@ -1,4 +1,4 @@
-package ntro.client.commandes;
+package ntro.commandes;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -1,4 +1,4 @@
-package ntro.client;
+package ntro.web_socket;
 
 import java.net.URI;
 

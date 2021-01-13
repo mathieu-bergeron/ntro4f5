@@ -1,4 +1,4 @@
-package ntro.client.mvc.controleurs;
+package ntro.mvc.controleurs;
 
 import ntro.debogage.J;
 import ntro.messages.MessageRecu;

@@ -1,4 +1,4 @@
-package ntro.javafx.vues.composants;
+package ntro.javafx.composants;
 
 
 import ntro.debogage.J;

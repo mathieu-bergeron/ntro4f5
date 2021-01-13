@@ -1,4 +1,4 @@
-package ntro.serveur;
+package ntro.web_socket;
 
 import ntro.debogage.J;
 import ntro.messages.Canal;

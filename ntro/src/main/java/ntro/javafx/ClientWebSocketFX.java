@@ -4,7 +4,7 @@ import java.net.URI;
 
 import ntro.debogage.J;
 import ntro.messages.FabriqueMessage;
-import ntro.client.ClientWebSocket;
+import ntro.web_socket.ClientWebSocket;
 import javafx.application.Platform;
 
 public abstract class ClientWebSocketFX extends ClientWebSocket {

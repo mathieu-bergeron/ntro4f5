@@ -1,13 +1,13 @@
-package ntro.client.mvc.controleurs;
+package ntro.mvc.controleurs;
 
 import ntro.debogage.J;
-import ntro.modeles.Modele;
-import ntro.modeles.ModeleLectureSeule;
-import ntro.client.commandes.Commande;
-import ntro.client.commandes.FabriqueCommande;
-import ntro.client.commandes.ReactionApresCommande;
-import ntro.client.mvc.Afficheur;
-import ntro.client.mvc.Vue;
+import ntro.mvc.Afficheur;
+import ntro.mvc.Vue;
+import ntro.mvc.modeles.Modele;
+import ntro.mvc.modeles.ModeleLectureSeule;
+import ntro.commandes.Commande;
+import ntro.commandes.FabriqueCommande;
+import ntro.commandes.ReactionApresCommande;
 
 @SuppressWarnings({"rawtypes", "unchecked"})
 public abstract class ControleurModeleVue<MLS extends ModeleLectureSeule, 

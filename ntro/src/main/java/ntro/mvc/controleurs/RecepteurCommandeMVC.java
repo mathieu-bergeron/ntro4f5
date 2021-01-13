@@ -1,8 +1,8 @@
-package ntro.client.mvc.controleurs;
+package ntro.mvc.controleurs;
 
+import ntro.commandes.CommandeRecue;
+import ntro.commandes.RecepteurCommande;
 import ntro.debogage.J;
-import ntro.client.commandes.CommandeRecue;
-import ntro.client.commandes.RecepteurCommande;
 
 public abstract class RecepteurCommandeMVC<CR extends CommandeRecue> extends RecepteurCommande<CR>{
 

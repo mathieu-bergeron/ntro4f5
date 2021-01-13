@@ -1,13 +1,13 @@
-package ntro.client.mvc.controleurs;
+package ntro.mvc.controleurs;
 
 
 import ntro.Fabrique;
 import ntro.debogage.DoitEtre;
 import ntro.debogage.J;
-import ntro.modeles.Modele;
-import ntro.modeles.ModeleLectureSeule;
-import ntro.client.mvc.Afficheur;
-import ntro.client.mvc.Vue;
+import ntro.mvc.Afficheur;
+import ntro.mvc.Vue;
+import ntro.mvc.modeles.Modele;
+import ntro.mvc.modeles.ModeleLectureSeule;
 
 @SuppressWarnings({"rawtypes", "unchecked"})
 public final class FabriqueControleur {

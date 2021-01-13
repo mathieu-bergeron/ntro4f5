@@ -1,4 +1,4 @@
-package ntro.client.commandes;
+package ntro.commandes;
 
 public abstract class ReactionApresCommande {
 

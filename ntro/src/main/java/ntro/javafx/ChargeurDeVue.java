@@ -7,7 +7,7 @@ import java.util.ResourceBundle;
 import ntro.debogage.DoitEtre;
 import ntro.debogage.Erreur;
 import ntro.debogage.J;
-import ntro.client.mvc.Vue;
+import ntro.mvc.Vue;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;

@@ -1,17 +1,17 @@
-package ntro.client.mvc.controleurs;
+package ntro.mvc.controleurs;
 
 import ntro.debogage.J;
 import ntro.messages.FabriqueMessage;
 import ntro.messages.Message;
 import ntro.messages.MessagePourEnvoi;
 import ntro.messages.MessageRecu;
-import ntro.client.commandes.Commande;
-import ntro.client.commandes.CommandePourEnvoi;
-import ntro.client.commandes.CommandeRecue;
-import ntro.client.commandes.FabriqueCommande;
-import ntro.client.commandes.ReactionApresCommande;
-import ntro.client.commandes.RecepteurCommande;
-import ntro.client.mvc.Vue;
+import ntro.mvc.Vue;
+import ntro.commandes.Commande;
+import ntro.commandes.CommandePourEnvoi;
+import ntro.commandes.CommandeRecue;
+import ntro.commandes.FabriqueCommande;
+import ntro.commandes.ReactionApresCommande;
+import ntro.commandes.RecepteurCommande;
 
 @SuppressWarnings("rawtypes")
 public abstract class ControleurVue<V extends Vue> {

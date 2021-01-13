@@ -1,6 +1,6 @@
-package ntro.client.mvc;
+package ntro.mvc;
 
-import ntro.modeles.ModeleLectureSeule;
+import ntro.mvc.modeles.ModeleLectureSeule;
 
 public abstract class Afficheur<MLS extends ModeleLectureSeule, V extends Vue> {
 	

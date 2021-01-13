@@ -1,4 +1,4 @@
-package ntro.client.commandes;
+package ntro.commandes;
 
 import ntro.debogage.Erreur;
 import ntro.debogage.J;

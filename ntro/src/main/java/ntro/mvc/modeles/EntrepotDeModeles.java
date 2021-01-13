@@ -1,4 +1,4 @@
-package ntro.modeles;
+package ntro.mvc.modeles;
 
 import java.io.File;
 import java.io.IOException;

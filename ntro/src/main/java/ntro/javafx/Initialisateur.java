@@ -20,8 +20,5 @@ public class Initialisateur {
 				System.exit(0);
 			}
 		});
-		
-		
 	}
-
 }

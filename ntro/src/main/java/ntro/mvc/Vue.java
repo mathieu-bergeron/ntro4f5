@@ -1,4 +1,4 @@
-package ntro.client.mvc;
+package ntro.mvc;
 
 public interface Vue{
 
