@@ -186,16 +186,19 @@ public class ChargeurDeVue<V extends Vue>{
     private void chargerParent() {
         J.appel(this);
 
+        DoitEtre.nonNul(loader, "loader");
+
         try {
 
             parent = loader.load();
 
         } catch (Exception e) {
-
+        	
             Erreur.fatale("Impossible de charger le FXML", e);
         }
 
         DoitEtre.nonNul(parent, "parent");
+
     }
 
     private void ajouterCss(String cheminCss) {

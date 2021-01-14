@@ -50,6 +50,9 @@ public class Erreur {
 	private static void afficherExceptions(Exception... exceptions) {
 		for(Exception e : exceptions) {
 			System.out.println("\t\t" + e.getClass().getSimpleName() + " " + e.getMessage());
+			if(e instanceof NullPointerException) {
+				e.printStackTrace();
+			}
 			if(e.getCause() != null) {
 				afficherExceptions(e.getCause());
 			}
@@ -59,6 +62,9 @@ public class Erreur {
 	private static void afficherExceptions(Throwable... exceptions) {
 		for(Throwable e : exceptions) {
 			System.out.println("\t\t" + e.getClass().getSimpleName() + " " + e.getMessage());
+			if(e instanceof NullPointerException) {
+				e.printStackTrace();
+			}
 			if(e.getCause() != null) {
 				afficherExceptions(e.getCause());
 			}
